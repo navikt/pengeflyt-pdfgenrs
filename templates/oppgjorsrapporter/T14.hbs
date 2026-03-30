@@ -16,24 +16,18 @@
     <div>
         <table class="header_table">
             <tr>
+                <td class="header-column2">Fortsetter fra forrige side </td>
+                <td></td>
                 <td class="header-column1"></td>
+                <td>Periode:</td>
                 <td></td>
-                <td class="header-column2"></td>
-                <td>Utbetalingsdato:</td>
-                <td></td>
-                <td>{{utbetalingsDato}}</td>
+                <td>{{periode.fra}} - {{periode.til}}</td>
             </tr>
             <tr>
                 <td colspan="3"></td>
-                <td>Rapport sendt:</td>
+                <td>Organisasjonsnr:</td>
                 <td></td>
-                <td>{{rapportSendt}}</td>
-            </tr>
-            <tr>
-                <td colspan="3"></td>
-                <td>Kontonummer:</td>
-                <td></td>
-                <td>{{bedrift.kontonummer}}</td>
+                <td>{{bedrift.orgnr}}</td>
             </tr>
         </table>
     </div>
