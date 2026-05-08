@@ -1,7 +1,7 @@
 apiVersion: "nais.io/v1alpha1"
 kind: "Application"
 metadata:
-  name: pengeflyt-pdfgen
+  name: pengeflyt-pdfgenrs
   namespace: oppgjorsrapporter
   labels:
     team: oppgjorsrapporter
@@ -9,11 +9,14 @@ spec:
   observability:
     autoInstrumentation:
       enabled: true
-      runtime: java
+      runtime: sdk
   image: {{ image }}
   replicas:
     min: 2
     max: 4
+    scalingStrategy:
+      cpu:
+        thresholdPercentage: 90
   liveness:
     path: /internal/is_alive
   readiness:
@@ -26,14 +29,10 @@ spec:
     path: /internal/prometheus
   resources:
     limits:
-      memory: 1536Mi
-  env:
-    - name: JDK_JAVA_OPTIONS
-      # "-Dlogback.configurationFile=logback.xml" kommer fra https://github.com/navikt/pdfgen/blob/main/Dockerfile
-      value: >-
-        -Dlogback.configurationFile=logback.xml
-        -Xmx1g
-        -XX:+ExitOnOutOfMemoryError
+      memory: 1024Mi
+    requests:
+      cpu: 10m
+      memory: 128Mi
   accessPolicy:
     inbound:
       rules:
