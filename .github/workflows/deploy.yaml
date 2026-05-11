@@ -5,15 +5,6 @@ env:
 
 on:
   workflow_dispatch:
-    inputs:
-      cluster:
-        description: Cluster
-        required: true
-        default: dev-gcp
-        type: choice
-        options:
-          - dev-gcp
-          #- prod-gcp
   push:
     branches:
       - main
@@ -26,7 +17,6 @@ on:
 
 jobs:
   build:
-    #if: github.event.pull_request.merged || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     permissions:
       contents: read
       actions: read
@@ -50,11 +40,10 @@ jobs:
 
   deploy_to_dev:
     name: Deploy to dev
-#    if: github.event.pull_request.merged || github.event_name == 'push' || github.event.inputs.cluster == 'dev-gcp'
+    needs: [build]
     permissions:
       contents: read
       id-token: write
-    needs: build
     uses: navikt/pengeflyt-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
     secrets: inherit
     with:
@@ -64,11 +53,11 @@ jobs:
 
   deploy_to_prod:
     name: Deploy to prod
-#    if: github.event.pull_request.merged || github.event_name == 'push' || github.event.inputs.cluster == 'prod-gcp'
+    if: github.ref == 'refs/heads/main'
+    needs: [build, deploy_to_dev]
     permissions:
       contents: read
       id-token: write
-    needs: [build, deploy_to_dev]
     uses: navikt/pengeflyt-gha-workflows/.github/workflows/nais-app-deploy.yaml@main
     secrets: inherit
     with:
