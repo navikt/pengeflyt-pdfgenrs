@@ -1,5 +1,8 @@
 name: Deploy
 
+env:
+  TZ: Europe/Oslo
+
 on:
   workflow_dispatch:
     inputs:
@@ -17,6 +20,9 @@ on:
       - dev
     paths-ignore:
       - '.github/**'
+  schedule:
+    # Deploy den 3. i hver måned kl. 08.23 (så er vi innafor "bygg og deploy minst hver 3. måned"-etterlevelseskravet)
+    - cron: "23 8 3 * *"
 
 jobs:
   build:
