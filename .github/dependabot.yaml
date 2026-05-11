@@ -4,8 +4,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    cooldown:
-      default-days: 7
+# Har disablet cooldown for denne applikasjonen - baseimaget 'pdfgen' utvikles av Nav, så risikoen bør være begrenset,
+# og inntil https://github.com/dependabot/dependabot-core/issues/14611 blir løst, så funker ikke dependabot sammen med
+# docker-image hostet på github packages.
+#    cooldown:
+#      default-days: 7
     groups:
       docker:
         patterns:
