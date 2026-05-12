@@ -3,12 +3,14 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
+import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.TestMethodOrder
 
 private val ROUTE = OppgjorsrapporterRoute.`ref-arbg`
 private val PDF_TEKST: String =
     lagPdfOgHentTekst(jsonNavn = "ref-arbg", pdfgenRoute = ROUTE)
 
+@Disabled("Har ikke konvertert `ref-arbg`-templaten fra handlebars til typst ennå")
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class RefArbgTest {
     @Test

@@ -11,7 +11,8 @@ import org.apache.pdfbox.text.PDFTextStripper
 
 enum class OppgjorsrapporterRoute(private val suffiks: String) {
     `ref-arbg`("refusjon-arbg-sortert-etter-ytelse"),
-    `trekk-kred`("T14");
+    `trekk-kred`("T14"),
+    `trekk-hend`("trekk-hend");
 
     private val prefiks = "/api/v1/genpdf/oppgjorsrapporter"
 

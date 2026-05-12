@@ -1,0 +1,44 @@
+{
+  "dato": "21.04.2026",
+  "mottaker": {
+    "type": "namsmann",
+    "orgnr": {
+      "formattert": "087 453 421",
+      "verdi": "087453421"
+    },
+    "navn": "NAMSFOGDEN I ANDEBY",
+    "adresse": "Postboks 313, 3158"
+  },
+  "trekkHendelser": [
+    {
+      "fnr": {
+        "formattert": "184538 66986",
+        "verdi": "18453866986"
+      },
+      "navn": "Donald Duck",
+      "namsmannOrgnr": null,
+      "kid": "0107036257420540624",
+      "hendelse": "Ingen ytelse"
+    },
+    {
+      "fnr": {
+        "formattert": "245089 24131",
+        "verdi": "24508924131"
+      },
+      "navn": "Guffen Gås",
+      "namsmannOrgnr": null,
+      "kid": "5900562964792591",
+      "hendelse": "Ingen ytelse"
+    },
+    {
+      "fnr": {
+        "formattert": "284820 19570",
+        "verdi": "28482019570"
+      },
+      "navn": "Petter Smart",
+      "namsmannOrgnr": null,
+      "kid": "01626785861606857982",
+      "hendelse": "Opphør ytelse"
+    }
+  ]
+}

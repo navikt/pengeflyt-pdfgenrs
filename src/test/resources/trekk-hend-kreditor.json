@@ -1,0 +1,40 @@
+{
+  "dato": "21.04.2026",
+  "mottaker": {
+    "type": "kreditor",
+    "orgnr": {
+      "formattert": "859 503 241",
+      "verdi": "859503241"
+    },
+    "navn": "McDuck inkasso AS",
+    "adresse": "Postboks 313, 3158 ANDEBY"
+  },
+  "trekkHendelser": [
+    {
+      "fnr": {
+        "formattert": "184538 66986",
+        "verdi": "18453866986"
+      },
+      "navn": "Donald Duck",
+      "namsmannOrgnr": {
+        "formattert": "087 453 421",
+        "verdi": "087453421"
+      },
+      "kid": "0107036257420540624",
+      "hendelse": "Ingen ytelse"
+    },
+    {
+      "fnr": {
+        "formattert": "224685 28375",
+        "verdi": "22468528375"
+      },
+      "navn": "Gulbrand Gråstein",
+      "namsmannOrgnr": {
+        "formattert": "141 619 942",
+        "verdi": "141619942"
+      },
+      "kid": "0103064541812328464",
+      "hendelse": "Opphør ytelse"
+    }
+  ]
+}
