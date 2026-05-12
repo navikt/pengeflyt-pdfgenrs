@@ -1,0 +1,95 @@
+import io.ktor.client.*
+import io.ktor.client.engine.apache5.*
+import io.ktor.client.plugins.*
+import io.ktor.client.request.*
+import io.ktor.client.statement.*
+import io.ktor.http.*
+import java.io.File
+import kotlinx.coroutines.runBlocking
+import org.apache.pdfbox.Loader
+import org.apache.pdfbox.text.PDFTextStripper
+
+enum class OppgjorsrapporterRoute(private val suffiks: String) {
+    `ref-arbg`("refusjon-arbg-sortert-etter-ytelse"),
+    `trekk-kred`("T14");
+
+    private val prefiks = "/api/v1/genpdf/oppgjorsrapporter"
+
+    fun path() = "$prefiks/$suffiks"
+}
+
+fun lagPdfOgHentTekst(
+    jsonNavn: String,
+    pdfgenRoute: OppgjorsrapporterRoute,
+): String {
+    val jsonPath = "src/test/resources/$jsonNavn.json"
+    val jsonData = File(jsonPath).readText()
+    println("Kaller pdfgen på [${pdfgenRoute.path()}] med fil fra [$jsonPath]")
+    val pdfBytes = hentPdf(pdfgenRoute.path(), jsonData)
+    pdfBytes.lagreTestPdf(jsonNavn)
+    return pdfBytes.toText()
+}
+
+fun ByteArray.lagreTestPdf(
+    navn: String,
+    destinasjon: File = File("build/test-pdf"),
+) {
+    val testPdfDir = destinasjon.apply { mkdirs() }
+    val pdfFile = File(testPdfDir, "$navn.pdf")
+    pdfFile.writeBytes(this)
+    println("PDF lagret til: ${pdfFile.absolutePath}")
+}
+
+fun ByteArray.toText(): String {
+    val pdfDocument = Loader.loadPDF(this)
+    val textStripper = PDFTextStripper()
+    val extractedText = textStripper.getText(pdfDocument)
+    pdfDocument.close()
+    return extractedText.trim()
+}
+
+fun hentPdf(
+    route: String,
+    jsonBody: String,
+): ByteArray =
+    runBlocking {
+        val client =
+            HttpClient(Apache5) {
+                install(HttpTimeout) {
+                    requestTimeoutMillis = 60000
+                    connectTimeoutMillis = 30000
+                    socketTimeoutMillis = 60000
+                }
+            }
+
+        SharedTestContainer.container
+        val url = "${SharedTestContainer.endepunkt}$route"
+
+        val response =
+            client.post(url) {
+                contentType(ContentType.Application.Json)
+                setBody(jsonBody)
+            }
+
+        client.close()
+
+        if (response.status != HttpStatusCode.OK) {
+            val responseBody = response.bodyAsText()
+            val containerLogs = SharedTestContainer.container.logs
+            System.err.println(
+                """
+                |========== PDFGEN FEIL ==========
+                |HTTP status: ${response.status}
+                |Response body:
+                |$responseBody
+                |
+                |========== CONTAINER LOGS ==========
+                |$containerLogs
+                |====================================
+                """.trimMargin(),
+            )
+            throw RuntimeException("Expected HTTP 200 OK but got ${response.status}. Response body: $responseBody")
+        }
+
+        response.readRawBytes()
+    }
