@@ -20,7 +20,7 @@ class TrekkKredTest {
     }
 
     @Test
-    fun `ref-arbg PDF har forventet innhold`() {
+    fun `trekk-kred PDF har forventet innhold`() {
         PDF_TEKST.also { println(it) } shouldBe
                 """
                 side  av 1 2Trekkoppgjørsrapport (T14)
