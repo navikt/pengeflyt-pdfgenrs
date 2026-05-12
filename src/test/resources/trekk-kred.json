@@ -1,0 +1,239 @@
+{
+  "rapportSendt": "17.03.2026",
+  "utbetalingsDato": "10.03.2026",
+  "totalsum": "54 958,00",
+  "periode": {
+    "fra": "01.02.2026",
+    "til": "28.02.2026"
+  },
+  "bedrift": {
+    "orgnr": "820710592",
+    "tssid": "80000844172",
+    "navn": "LILLESTRØM KOMMUNE",
+    "kontonummer": "1000 23 23456",
+    "adresse": "Jonas Lies gate 18, 2000"
+  },
+  "enheter": [
+    {
+      "navn": "NAV Økonomi Stønad",
+      "sumEnhet": "20 879,00",
+      "orgnr": "820710592",
+      "arkivreferanser": [
+        {
+          "arkivref": "243927771",
+          "refnrsum": "1 326,00",
+          "trekk": [
+            {
+              "fnr": "04504349435",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Saksnr. 128201",
+              "periodeFra": "30.12.2025",
+              "periodeTil": "31.12.2025",
+              "belop": "60,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "04504349435",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Saksnr. 128201",
+              "periodeFra": "01.12.2025",
+              "periodeTil": "11.12.2025",
+              "belop": "268,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "04504349435",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Saksnr. 128201",
+              "periodeFra": "12.12.2025",
+              "periodeTil": "29.12.2025",
+              "belop": "358,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "04504349435",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Saksnr. 128201",
+              "periodeFra": "19.11.2025",
+              "periodeTil": "26.11.2025",
+              "belop": "480,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "04504349435",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Saksnr. 128201",
+              "periodeFra": "27.11.2025",
+              "periodeTil": "30.11.2025",
+              "belop": "160,00",
+              "tssId": "80000844172"
+            }
+          ]
+        },
+        {
+          "arkivref": "243928104",
+          "refnrsum": "7 828,00",
+          "trekk": [
+            {
+              "fnr": "07793012901",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Husleie",
+              "periodeFra": "23.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "3 914,00",
+              "tssId": "80000819252"
+            },
+            {
+              "fnr": "07793012901",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Husleie",
+              "periodeFra": "16.02.2026",
+              "periodeTil": "22.02.2026",
+              "belop": "3 914,00",
+              "tssId": "80000819252"
+            }
+          ]
+        },
+        {
+          "arkivref": "243928165",
+          "refnrsum": "5 450,00",
+          "trekk": [
+            {
+              "fnr": "00576841437",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Husleie",
+              "periodeFra": "09.02.2026",
+              "periodeTil": "15.02.2026",
+              "belop": "2 725,00",
+              "tssId": "80000819252"
+            },
+            {
+              "fnr": "00576841437",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "Husleie",
+              "periodeFra": "16.02.2026",
+              "periodeTil": "22.02.2026",
+              "belop": "2 725,00",
+              "tssId": "80000819252"
+            }
+          ]
+        },
+        {
+          "arkivref": "243928328",
+          "refnrsum": "1 423,00",
+          "trekk": [
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "09.02.2026",
+              "periodeTil": "13.02.2026",
+              "belop": "711,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "20.02.2026",
+              "periodeTil": "21.02.2026",
+              "belop": "143,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "16.02.2026",
+              "periodeTil": "19.02.2026",
+              "belop": "569,00",
+              "tssId": "80000844172"
+            }
+          ]
+        },
+        {
+          "arkivref": "243999801",
+          "refnrsum": "4 852,00",
+          "trekk": [
+            {
+              "fnr": "10581233523",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "120666",
+              "periodeFra": "14.02.2026",
+              "periodeTil": "27.02.2026",
+              "belop": "4 852,00",
+              "tssId": "80000844172"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "navn": "NAV",
+      "sumEnhet": "34 079,00",
+      "orgnr": "820710592",
+      "arkivreferanser": [
+        {
+          "arkivref": "243928051",
+          "refnrsum": "34 079,00",
+          "trekk": [
+            {
+              "fnr": "04508082521",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "",
+              "periodeFra": "01.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "15 599,00",
+              "tssId": "80000816561"
+            },
+            {
+              "fnr": "04508082521",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "",
+              "periodeFra": "01.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "18 691,00",
+              "tssId": "80000816561"
+            },
+            {
+              "fnr": "04508082521",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "",
+              "periodeFra": "01.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "−15 599,00",
+              "tssId": "80000816561"
+            },
+            {
+              "fnr": "04508082521",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "",
+              "periodeFra": "01.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "−18 480,00",
+              "tssId": "80000816561"
+            },
+            {
+              "fnr": "04508082521",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "",
+              "periodeFra": "01.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "18 480,00",
+              "tssId": "80000816561"
+            },
+            {
+              "fnr": "04508082521",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "",
+              "periodeFra": "01.02.2026",
+              "periodeTil": "28.02.2026",
+              "belop": "15 388,00",
+              "tssId": "80000816561"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
