@@ -25,29 +25,29 @@ class RefArbgTest {
             Adresse: Veien 24, 1234, VårBy Rapport sendt: 31.01.2025
             Organisasjonsnr: 974 600 019 Kontonummer: 0247 03 03400
             Totalt til utbetaling til org.nr. 974 600 019, kontonr 0247 03 03400 16 238,68
-            Foreldrepenger (ytelse)
+            Foreldrepenger
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 31.07.2026 4 234,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 1 504,68
             Sum Foreldrepenger 5 738,68
-            Sykepenger (ytelse)
+            Sykepenger
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             Sum Sykepenger 10 500,00
-            Ytelse A (ytelse)
+            Ytelse A
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             Sum Ytelse A 10 500,00
-            Ytelse B (ytelse)
+            Ytelse B
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             Sum Ytelse B 10 500,00
-            Ytelse C (ytelse)
+            Ytelse C
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
@@ -57,14 +57,14 @@ class RefArbgTest {
             Oppgjørsrapport arbeidsgiver – refusjoner fra Nav 974 600 019 side 1 av 2
             Utbetalingsdato: 28.01.2025
             Kontonummer: 0247 03 03400
-            Ytelse D (ytelse)
+            Ytelse D
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             Sum Ytelse D 10 500,00
-            Ytelse E (ytelse)
+            Ytelse E
             Underenhet FNR Navn Periode Maksdato Beløp
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00

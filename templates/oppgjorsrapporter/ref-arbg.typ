@@ -75,7 +75,7 @@
 #total-utbetalt-linje
 
 #for (ytelse, posteringer, totalbelop) in data.ytelser [
-  = #ytelse (ytelse)
+  = #ytelse
 
   #let table-counter = counter("tabell-" + ytelse);
   #table(
