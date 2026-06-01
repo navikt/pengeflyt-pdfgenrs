@@ -10,7 +10,7 @@ import org.apache.pdfbox.Loader
 import org.apache.pdfbox.text.PDFTextStripper
 
 enum class OppgjorsrapporterRoute(private val suffiks: String) {
-    `ref-arbg`("refusjon-arbg-sortert-etter-ytelse"),
+    `ref-arbg`("ref-arbg"),
     `trekk-kred`("T14"),
     `trekk-hend`("trekk-hend");
 
