@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.2.20"
-    id("org.jmailen.kotlinter")
+    id("com.diffplug.spotless") version "8.5.1"
 }
 
 group = "no.nav.pengeflyt"
@@ -31,4 +31,16 @@ tasks.test {
 
 kotlin {
     jvmToolchain(21)
+}
+
+spotless {
+    kotlin {
+        targetExclude("src/main/java/**/*")
+        targetExclude("build/generated/**/*")
+        ktfmt().kotlinlangStyle().configure {
+            it.setMaxWidth(140)
+            it.setRemoveUnusedImports(true)
+            it.setTrailingCommaManagementStrategy(com.diffplug.spotless.kotlin.KtfmtStep.TrailingCommaManagementStrategy.COMPLETE)
+        }
+    }
 }
