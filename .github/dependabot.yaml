@@ -4,6 +4,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "05:30"
+      timezone: "Europe/Oslo"
 # Har disablet cooldown for denne applikasjonen - baseimaget 'pdfgenrs' utvikles av Nav, så risikoen bør være begrenset,
 # og inntil https://github.com/dependabot/dependabot-core/issues/14611 blir løst, så funker ikke dependabot sammen med
 # docker-image hostet på github packages.
@@ -18,6 +21,9 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+      day: "monday"
+      time: "05:30"
+      timezone: "Europe/Oslo"
     cooldown:
       default-days: 7
     groups:

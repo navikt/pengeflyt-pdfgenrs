@@ -1,4 +1,4 @@
-rootProject.name = "pengeflyt-pdfgen"
+rootProject.name = "pengeflyt-pdfgenrs"
 
 pluginManagement {
     plugins {
