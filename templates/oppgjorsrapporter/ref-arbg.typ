@@ -1,5 +1,5 @@
 // pdfgenrs tilbyr JSON fra POST på denne pathen
-#let data = json("/data.json")
+#let data = json("/data/oppgjorsrapporter/ref-arbg.json")
 
 // Vi ønsker å kunne gjenbruke dokument-tittelen både i metadata og i tekster, så den er definert som en variabel her:
 #let rapport-tittel = [Oppgjørsrapport arbeidsgiver -- refusjoner fra Nav]
