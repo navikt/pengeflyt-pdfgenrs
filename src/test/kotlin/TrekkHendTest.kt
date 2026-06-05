@@ -23,9 +23,10 @@ class TrekkHendTest {
         KREDITOR_PDF_TEKST.also { println(it) } shouldBe
             """
             Trekkhendelser - tilbakemelding fra Nav til kreditor
-            Navn: McDuck inkasso AS Fremkjørt: 21.04.2026
+            Navn: McDuck inkasso AS
             Adresse: Postboks 313, 3158 ANDEBY
             Organisasjonsnummer: 859 503 241
+            Fremkjørt: 21.04.2026
             Fnr Navn Org.nr Kreditors KID/referanse Type hendelse
             184538 66986 Donald Duck 087 453 421 0107036257420540624 Ingen ytelse
             224685 28375 Gulbrand Gråstein 141 619 942 0103064541812328464 Opphør ytelse
@@ -40,9 +41,10 @@ class TrekkHendTest {
         NAMSMANN_PDF_TEKST.also { println(it) } shouldBe
             """
             Trekkhendelser - tilbakemelding fra Nav til namsmann
-            Navn: NAMSFOGDEN I ANDEBY Fremkjørt: 21.04.2026
+            Navn: NAMSFOGDEN I ANDEBY
             Adresse: Postboks 313, 3158
             Organisasjonsnummer: 087 453 421
+            Fremkjørt: 21.04.2026
             Fnr Navn Org.nr Kreditors KID/referanse Type hendelse
             184538 66986 Donald Duck 0107036257420540624 Ingen ytelse
             245089 24131 Guffen Gås 5900562964792591 Ingen ytelse

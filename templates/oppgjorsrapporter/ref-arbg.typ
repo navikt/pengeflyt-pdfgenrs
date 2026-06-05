@@ -51,11 +51,22 @@
 #title()
 
 #grid(
-  columns: (auto, 1fr, auto, auto),
-  inset: 4pt,
-  [Navn:], data.bedrift.navn, [Utbetalingsdato:], data.utbetalingsDato,
-  [Adresse:], data.bedrift.adresse, [Rapport sendt:], data.rapportSendt,
-  [Organisasjonsnr:], data.bedrift.orgnr.formattert, [Kontonummer:], data.bedrift.kontonummer.formattert,
+  columns: (auto, 1fr, auto),
+  grid(
+    columns: (auto, auto),
+    inset: 4pt,
+    [Navn:], data.bedrift.navn,
+    [Adresse:], data.bedrift.adresse,
+    [Organisasjonsnr:], data.bedrift.orgnr.formattert
+  ),
+  [],
+  grid(
+    columns: (auto, auto),
+    inset: 4pt,
+    [Utbetalingsdato:], data.utbetalingsDato,
+    [Rapport sendt:], data.rapportSendt,
+    [Kontonummer:], data.bedrift.kontonummer.formattert,
+  )
 )
 
 #let sum-linje-bakgrunn = rgb("#f2f3f5")

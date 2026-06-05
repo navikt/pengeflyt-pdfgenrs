@@ -21,9 +21,12 @@ class RefArbgTest {
         PDF_TEKST.also { println(it) } shouldBe
             """
             Oppgjørsrapport arbeidsgiver – refusjoner fra Nav
-            Navn: Helsfyr stål og plasikk Utbetalingsdato: 28.01.2025
-            Adresse: Veien 24, 1234, VårBy Rapport sendt: 31.01.2025
-            Organisasjonsnr: 974 600 019 Kontonummer: 0247 03 03400
+            Navn: Helsfyr stål og plasikk
+            Adresse: Veien 24, 1234, VårBy
+            Organisasjonsnr: 974 600 019
+            Utbetalingsdato: 28.01.2025
+            Rapport sendt: 31.01.2025
+            Kontonummer: 0247 03 03400
             Totalt til utbetaling til org.nr. 974 600 019, kontonr 0247 03 03400 16 238,68
             Foreldrepenger
             Underenhet FNR Navn Periode Maksdato Beløp

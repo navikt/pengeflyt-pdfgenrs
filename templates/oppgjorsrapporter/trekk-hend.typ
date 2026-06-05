@@ -70,11 +70,22 @@
 
 #title()
 #grid(
-  columns: (auto, 1fr, auto, auto),
-  inset: 4pt,
-  [Navn:], data.mottaker.navn, [Fremkjørt:], strong(data.dato),
-  [Adresse:], data.mottaker.adresse, [], [],
-  [Organisasjonsnummer:], data.mottaker.orgnr.formattert, [], [],
+  columns: (auto, 1fr, auto),
+  grid(
+    columns: (auto, auto),
+    inset: 4pt,
+    [Navn:], data.mottaker.navn,
+    [Adresse:], data.mottaker.adresse,
+    [Organisasjonsnummer:], data.mottaker.orgnr.formattert,
+  ),
+  [],
+  grid(
+    columns: (auto, auto),
+    inset: 4pt,
+    [Fremkjørt:], strong(data.dato),
+    [], [],
+    [], [],
+  )
 )
 
 #let table-counter = counter("tabell");
