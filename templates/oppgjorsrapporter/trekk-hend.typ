@@ -17,8 +17,7 @@
   paper: "a4",
   flipped: true, // i.e. landscape orientation
   margin: (
-    left: 2cm,
-    right: 1cm,
+    x: 2cm,
     top: 3cm, // For å få plass til headeren
     bottom: 1cm
   ),
