@@ -152,6 +152,81 @@
           ]
         },
         {
+          "arkivref": "243928328",
+          "refnrsum": "1 423,00",
+          "trekk": [
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "09.02.2026",
+              "periodeTil": "13.02.2026",
+              "belop": "711,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "20.02.2026",
+              "periodeTil": "21.02.2026",
+              "belop": "143,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "16.02.2026",
+              "periodeTil": "19.02.2026",
+              "belop": "569,00",
+              "tssId": "80000844172"
+            }
+          ]
+        },
+        {
+          "arkivref": "243928328",
+          "refnrsum": "1 423,00",
+          "trekk": [
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "09.02.2026",
+              "periodeTil": "13.02.2026",
+              "belop": "711,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "09.02.2026",
+              "periodeTil": "13.02.2026",
+              "belop": "711,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "09.02.2026",
+              "periodeTil": "13.02.2026",
+              "belop": "711,00",
+              "tssId": "80000844172"
+            },
+            {
+              "fnr": "01154849230",
+              "navn": "Dette er en testperson",
+              "saksreferanse": "128195",
+              "periodeFra": "16.02.2026",
+              "periodeTil": "19.02.2026",
+              "belop": "569,00",
+              "tssId": "80000844172"
+            }
+          ]
+        },
+        {
           "arkivref": "243999801",
           "refnrsum": "4 852,00",
           "trekk": [
