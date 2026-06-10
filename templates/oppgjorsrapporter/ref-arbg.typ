@@ -130,7 +130,7 @@
     ),
     ..{
       let (..init, sistePostering) = posteringer
-      let tabellrad(p, brekkbar) = {
+      let tabellrad(p, rowspan) = {
         (
           p.orgnr.formattert,
           p.fnr.formattert,
@@ -138,21 +138,20 @@
           if "periodeFra" in p and "periodeTil" in p [#p.periodeFra - #p.periodeTil],
           p.at("maksDato", default: none),
           p.belop.formattert,
-          brekkbar,
+          table.cell(rowspan: rowspan, breakable: false)[],
         )
       }
 
       for postering in init {
-        tabellrad(postering, [])
+        tabellrad(postering, 1)
       }
 
       // Legg inn en "ikke brekk tabellen etter den siste data-linja"-celle her, slik at tabellens sum-linje (som jo
       // ikke henger så mye sammen med kolonne-overskriftene) risikerer å bli den eneste raden på ny side.
-      tabellrad(sistePostering, table.cell(rowspan: 2, breakable: false)[])
+      tabellrad(sistePostering, 2)
     },
     [], [], [Sum #ytelse], [], [], totalbelop.formattert,
   )
 ]
-
 
 #total-utbetalt-linje
