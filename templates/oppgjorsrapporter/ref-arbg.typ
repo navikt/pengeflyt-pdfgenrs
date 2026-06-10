@@ -90,7 +90,17 @@
 
   #let table-counter = counter("tabell-" + ytelse);
   #table(
-    stroke: none,
+    stroke: (_, y) => {
+      return if y == 0 {
+        // Tabell-header for "tabellen fortsetter fra forrige side"; vil kun ha tekst på side 2 og utover
+        none
+      } else if y == 1 {
+        // Tabell-header med navn på kolonner - skal ha litt tykkere strek under seg
+        (bottom: 2pt + tabell-header-bakgrunn.darken(10%), rest: none)
+      } else {
+        (bottom: 1pt + rgb("ddd"), rest: none)
+      }
+    },
     fill: (_, y) => if y == 1 {
       // Tabell-header med navn på kolonner - skal ha lyseblå bakgrunn
       tabell-header-bakgrunn
