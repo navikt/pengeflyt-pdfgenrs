@@ -150,7 +150,7 @@
       // ikke henger så mye sammen med kolonne-overskriftene) risikerer å bli den eneste raden på ny side.
       tabellrad(sistePostering, table.cell(rowspan: 2, breakable: false)[])
     },
-    [], [], [Sum #ytelse], [], [], totalbelop.formattert, [],
+    [], [], [Sum #ytelse], [], [], totalbelop.formattert,
   )
 ]
 
