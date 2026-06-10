@@ -98,12 +98,12 @@
       sum-linje-bakgrunn
     },
     inset: 4pt,
-    columns: (auto, auto, 1fr, auto, auto, auto),
-    align: (auto, auto, auto, auto, auto, right),
+    columns: (auto, auto, 1fr, auto, auto, auto, 0pt),
+    align: (auto, auto, auto, auto, auto, right, auto),
     table.header(
       level: 1,
       table.cell(
-        colspan: 6,
+        colspan: 7,
         {
           table-counter.step()
           context {
@@ -116,19 +116,34 @@
     ),
     table.header(
       level: 2,
-      [*Underenhet*], [*FNR*], [*Navn*], [*Periode*], [*Maksdato*], [*Beløp*]
+      [*Underenhet*], [*FNR*], [*Navn*], [*Periode*], [*Maksdato*], [*Beløp*], []
     ),
-    ..for p in posteringer {
+    ..{
+      let (..init, last) = posteringer
+      for p in init {
+        (
+          p.orgnr.formattert,
+          p.fnr.formattert,
+          p.navn,
+          if "periodeFra" in p and "periodeTil" in p [#p.periodeFra - #p.periodeTil],
+          p.at("maksDato", default: none),
+          p.belop.formattert,
+          [],
+        )
+      }
       (
-        p.orgnr.formattert,
-        p.fnr.formattert,
-        p.navn,
-        if "periodeFra" in p and "periodeTil" in p [#p.periodeFra - #p.periodeTil],
-        p.at("maksDato", default: none),
-        p.belop.formattert,
+        last.orgnr.formattert,
+        last.fnr.formattert,
+        last.navn,
+        if "periodeFra" in last and "periodeTil" in last [#last.periodeFra - #last.periodeTil],
+        last.at("maksDato", default: none),
+        last.belop.formattert,
+        // Legg inn en "ikke brekk tabellen etter den siste data-linja"-celle her, slik at tabellens sum-linje (som jo
+        // ikke henger så mye sammen med kolonne-overskriftene) risikerer å bli den eneste raden på ny side.
+        table.cell(rowspan: 2, breakable: false)[],
       )
     },
-    [], [], [Sum #ytelse], [], [], totalbelop.formattert
+    [], [], [Sum #ytelse], [], [], totalbelop.formattert, [],
   )
 ]
 
