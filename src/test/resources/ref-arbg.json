@@ -257,6 +257,74 @@
         },
         {
           "orgnr": {
+            "verdi": "009876111",
+            "formattert": "009 876 111"
+          },
+          "fnr": {
+            "verdi": "12345678111",
+            "formattert": "123456 78111"
+          },
+          "navn": "Anders Andersen",
+          "periodeFra": "01.01.2025",
+          "periodeTil": "31.01.2025",
+          "belop": {
+            "verdi": 6500.00,
+            "formattert": "6 500,00"
+          }
+        },
+        {
+          "orgnr": {
+            "verdi": "009876111",
+            "formattert": "009 876 111"
+          },
+          "fnr": {
+            "verdi": "12345678111",
+            "formattert": "123456 78111"
+          },
+          "navn": "Anders Andersen",
+          "periodeFra": "01.01.2025",
+          "periodeTil": "31.01.2025",
+          "belop": {
+            "verdi": 6500.00,
+            "formattert": "6 500,00"
+          }
+        },
+        {
+          "orgnr": {
+            "verdi": "009876111",
+            "formattert": "009 876 111"
+          },
+          "fnr": {
+            "verdi": "12345678111",
+            "formattert": "123456 78111"
+          },
+          "navn": "Anders Andersen",
+          "periodeFra": "01.01.2025",
+          "periodeTil": "31.01.2025",
+          "belop": {
+            "verdi": 6500.00,
+            "formattert": "6 500,00"
+          }
+        },
+        {
+          "orgnr": {
+            "verdi": "009876111",
+            "formattert": "009 876 111"
+          },
+          "fnr": {
+            "verdi": "12345678111",
+            "formattert": "123456 78111"
+          },
+          "navn": "Anders Andersen",
+          "periodeFra": "01.01.2025",
+          "periodeTil": "31.01.2025",
+          "belop": {
+            "verdi": 6500.00,
+            "formattert": "6 500,00"
+          }
+        },
+        {
+          "orgnr": {
             "verdi": "009876222",
             "formattert": "009 876 222"
           },
@@ -473,4 +541,3 @@
     }
   ]
 }
-
