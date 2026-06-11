@@ -8,9 +8,9 @@
 #set document(
   title: rapport-tittel,
   author: "pengeflyt-pdfgenrs",
-  description: rapport-tittel
+  description: rapport-tittel,
 )
-#set text(lang:"no")
+#set text(lang: "no")
 
 // Sideoppsett, skriftstørrelse, etc.
 #set text(font: "Source Sans Pro", size: 10pt, fill: rgb("3e3832"))
@@ -20,7 +20,7 @@
   margin: (
     x: 2cm,
     top: 4cm, // For å få plass til headeren
-    bottom: 1cm
+    bottom: 1cm,
   ),
   header: context {
     let logo = image("/resources/nav-logo.svg", alt: "NAV logo")
@@ -31,7 +31,9 @@
         columns: (auto, 1fr, auto),
         inset: 4pt,
         align: top,
-        logo, [], grid(
+        logo,
+        [],
+        grid(
           columns: (auto, auto),
           inset: 4pt,
           [Utbetalingsdato:], data.utbetalingsDato,
@@ -40,12 +42,12 @@
       )
     }
   },
-  footer: context [
-    #set text(size: 8pt)
-    #rapport-tittel #data.bedrift.orgnr.formattert
-    #h(1fr)
-    #counter(page).display((side, total) => [side #side av #total], both: true)
-  ]
+  footer: context {
+    set text(size: 8pt)
+    [#rapport-tittel #data.bedrift.orgnr.formattert]
+    h(1fr)
+    counter(page).display((side, total) => [side #side av #total], both: true)
+  },
 )
 
 #title()
@@ -57,7 +59,7 @@
     inset: 4pt,
     [Navn:], data.bedrift.navn,
     [Adresse:], data.bedrift.adresse,
-    [Organisasjonsnr:], data.bedrift.orgnr.formattert
+    [Organisasjonsnr:], data.bedrift.orgnr.formattert,
   ),
   [],
   grid(
@@ -66,7 +68,7 @@
     [Utbetalingsdato:], data.utbetalingsDato,
     [Rapport sendt:], data.rapportSendt,
     [Kontonummer:], data.bedrift.kontonummer.formattert,
-  )
+  ),
 )
 
 #let sum-linje-bakgrunn = rgb("#f2f3f5")
@@ -81,68 +83,80 @@
   [],
   [Totalt til utbetaling til org.nr. #data.bedrift.orgnr.formattert, kontonr #data.bedrift.kontonummer.formattert],
   [],
-  data.totalsum.formattert
+  data.totalsum.formattert,
 )
 #total-utbetalt-linje
 
-#for (ytelse, posteringer, totalbelop) in data.ytelser [
-  = #ytelse
+#let styled-cells(..args) = {
+  args.pos().map(c => table.cell(..args.named(), c))
+}
 
-  #let table-counter = counter("tabell-" + ytelse);
-  #table(
-    stroke: none,
-    fill: (_, y) => if y == 1 {
-      // Tabell-header med navn på kolonner - skal ha lyseblå bakgrunn
-      tabell-header-bakgrunn
-    } else if y == posteringer.len() + 2 {
-      sum-linje-bakgrunn
-    },
+#for (ytelse, posteringer, totalbelop) in data.ytelser {
+  [= #ytelse]
+
+  let table-counter = counter("tabell-" + ytelse)
+  table(
+    stroke: (bottom: 1pt + rgb("ddd"), rest: none),
     inset: 4pt,
     columns: (auto, auto, 1fr, auto, auto, auto, 0pt),
     align: (auto, auto, auto, auto, auto, right, auto),
     table.header(
       level: 1,
-      table.cell(
-        colspan: 7,
-        {
-          table-counter.step()
-          context {
-            if table-counter.get().first() > 1 {
-              [Fortsetter fra forrige side #v(.5em)]
-            }
+      table.cell(colspan: 7, stroke: none, {
+        table-counter.step()
+        context {
+          if table-counter.get().first() > 1 {
+            [Fortsetter fra forrige side #v(.5em)]
           }
         }
-      )
+      }),
     ),
     table.header(
       level: 2,
-      [*Underenhet*], [*FNR*], [*Navn*], [*Periode*], [*Maksdato*], [*Beløp*], []
+      ..styled-cells(
+        fill: tabell-header-bakgrunn,
+        stroke: (bottom: 2pt + tabell-header-bakgrunn.darken(10%), rest: none),
+        [*Underenhet*],
+        [*FNR*],
+        [*Navn*],
+        [*Periode*],
+        [*Maksdato*],
+        [*Beløp*],
+      ),
     ),
     ..{
       let (..init, sistePostering) = posteringer
-      let tabellrad(p, brekkbar) = {
+      let tabellrad(p, rowspan) = {
         (
           p.orgnr.formattert,
           p.fnr.formattert,
           p.navn,
-          if "periodeFra" in p and "periodeTil" in p [#p.periodeFra - #p.periodeTil],
+          if "periodeFra" in p
+            and "periodeTil" in p [#p.periodeFra - #p.periodeTil],
           p.at("maksDato", default: none),
           p.belop.formattert,
-          brekkbar,
+          table.cell(rowspan: rowspan, breakable: false)[],
         )
       }
 
       for postering in init {
-        tabellrad(postering, [])
+        tabellrad(postering, 1)
       }
 
       // Legg inn en "ikke brekk tabellen etter den siste data-linja"-celle her, slik at tabellens sum-linje (som jo
       // ikke henger så mye sammen med kolonne-overskriftene) risikerer å bli den eneste raden på ny side.
-      tabellrad(sistePostering, table.cell(rowspan: 2, breakable: false)[])
+      tabellrad(sistePostering, 2)
     },
-    [], [], [Sum #ytelse], [], [], totalbelop.formattert, [],
+    ..styled-cells(
+      fill: sum-linje-bakgrunn,
+      [],
+      [],
+      [Sum #ytelse],
+      [],
+      [],
+      totalbelop.formattert,
+    ),
   )
-]
-
+}
 
 #total-utbetalt-linje

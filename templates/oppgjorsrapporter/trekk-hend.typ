@@ -8,7 +8,7 @@
 #set document(
   title: rapport-tittel,
   author: "pengeflyt-pdfgenrs",
-  description: rapport-tittel
+  description: rapport-tittel,
 )
 
 // Sideoppsett, skriftstørrelse, etc.
@@ -19,7 +19,7 @@
   margin: (
     x: 2cm,
     top: 3cm, // For å få plass til headeren
-    bottom: 1cm
+    bottom: 1cm,
   ),
   header: context {
     let logo = image("/resources/nav-logo.svg", alt: "NAV logo")
@@ -30,11 +30,15 @@
         columns: (auto, 2cm, 1fr),
         inset: 4pt,
         align: top,
-        logo, [], grid(
+        logo,
+        [],
+        grid(
           columns: (1fr, auto, auto),
           inset: 4pt,
           strong(rapport-tittel), [Fremkjørt:], strong(data.dato),
-          [#data.mottaker.navn (org.nr #data.mottaker.orgnr.formattert)], [], [],
+          [#data.mottaker.navn (org.nr #data.mottaker.orgnr.formattert)],
+          [],
+          [],
         ),
       )
     }
@@ -44,7 +48,7 @@
     Trekkhendelser (T12)
     #h(1fr)
     #counter(page).display((side, total) => [side #side av #total], both: true)
-  ]
+  ],
 )
 
 // Grafisk profil på tabellen med trekkhendelser
@@ -65,7 +69,7 @@
     // Tabell-header med navn på kolonner - skal ha lyseblå bakgrunn
     rgb("e6f0ff")
   },
-  inset: 4pt
+  inset: 4pt,
 )
 
 #title()
@@ -85,7 +89,7 @@
     [Fremkjørt:], strong(data.dato),
     [], [],
     [], [],
-  )
+  ),
 )
 
 #let table-counter = counter("tabell");
@@ -102,12 +106,12 @@
             [Fortsetter fra forrige side #v(.5em)]
           }
         }
-      }
-    )
+      },
+    ),
   ),
   table.header(
     level: 2,
-    [Fnr], [Navn], [Org.nr], [Kreditors KID/referanse], [Type hendelse]
+    [Fnr], [Navn], [Org.nr], [Kreditors KID/referanse], [Type hendelse],
   ),
   ..for h in data.trekkHendelser {
     (
@@ -115,7 +119,7 @@
       [#h.navn],
       if h.namsmannOrgnr == none [] else [#h.namsmannOrgnr.formattert],
       [#h.kid],
-      [#h.hendelse]
+      [#h.hendelse],
     )
-  }
+  },
 )

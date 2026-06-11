@@ -57,13 +57,13 @@ class RefArbgTest {
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
             009 876 111 123456 78111 Anders Andersen 01.01.2025 - 31.01.2025 6 500,00
+            009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
+            009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             Oppgjørsrapport arbeidsgiver – refusjoner fra Nav 974 600 019 side 1 av 2
             Utbetalingsdato: 28.01.2025
             Kontonummer: 0247 03 03400
             Fortsetter fra forrige side
             Underenhet FNR Navn Periode Maksdato Beløp
-            009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
-            009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             009 876 222 123456 78222 Birte Birtesen 15.01.2025 - 31.01.2025 31.07.2026 4 000,00
             Sum Ytelse C 10 500,00
             Ytelse D
