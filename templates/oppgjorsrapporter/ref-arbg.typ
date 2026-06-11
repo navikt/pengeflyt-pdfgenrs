@@ -85,35 +85,21 @@
 )
 #total-utbetalt-linje
 
+#let styled-cells(..args) = {
+  args.pos().map(c => table.cell(..args.named(), c))
+}
+
 #for (ytelse, posteringer, totalbelop) in data.ytelser [
   = #ytelse
 
   #let table-counter = counter("tabell-" + ytelse);
   #table(
-    stroke: (_, y) => {
-      return if y == 0 {
-        // Tabell-header for "tabellen fortsetter fra forrige side"; vil kun ha tekst på side 2 og utover
-        none
-      } else if y == 1 {
-        // Tabell-header med navn på kolonner - skal ha litt tykkere strek under seg
-        (bottom: 2pt + tabell-header-bakgrunn.darken(10%), rest: none)
-      } else {
-        (bottom: 1pt + rgb("ddd"), rest: none)
-      }
-    },
-    fill: (_, y) => if y == 1 {
-      // Tabell-header med navn på kolonner - skal ha lyseblå bakgrunn
-      tabell-header-bakgrunn
-    } else if y == posteringer.len() + 2 {
-      sum-linje-bakgrunn
-    },
+    stroke: (bottom: 1pt + rgb("ddd"), rest: none),
     inset: 4pt,
     columns: (auto, auto, 1fr, auto, auto, auto, 0pt),
     align: (auto, auto, auto, auto, auto, right, auto),
-    table.header(
-      level: 1,
-      table.cell(
-        colspan: 7,
+    table.header( level: 1,
+      table.cell( colspan: 7, stroke: none,
         {
           table-counter.step()
           context {
@@ -126,7 +112,11 @@
     ),
     table.header(
       level: 2,
-      [*Underenhet*], [*FNR*], [*Navn*], [*Periode*], [*Maksdato*], [*Beløp*], []
+      ..styled-cells(
+        fill: tabell-header-bakgrunn,
+        stroke: (bottom: 2pt + tabell-header-bakgrunn.darken(10%), rest: none),
+        [*Underenhet*], [*FNR*], [*Navn*], [*Periode*], [*Maksdato*], [*Beløp*],
+      )
     ),
     ..{
       let (..init, sistePostering) = posteringer
@@ -150,7 +140,10 @@
       // ikke henger så mye sammen med kolonne-overskriftene) risikerer å bli den eneste raden på ny side.
       tabellrad(sistePostering, 2)
     },
-    [], [], [Sum #ytelse], [], [], totalbelop.formattert,
+    ..styled-cells(
+      fill: sum-linje-bakgrunn,
+      [], [], [Sum #ytelse], [], [], totalbelop.formattert,
+    ),
   )
 ]
 
