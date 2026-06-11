@@ -40,12 +40,12 @@
       )
     }
   },
-  footer: context [
-    #set text(size: 8pt)
-    #rapport-tittel #data.bedrift.orgnr.formattert
-    #h(1fr)
-    #counter(page).display((side, total) => [side #side av #total], both: true)
-  ]
+  footer: context {
+    set text(size: 8pt)
+    [#rapport-tittel #data.bedrift.orgnr.formattert]
+    h(1fr)
+    counter(page).display((side, total) => [side #side av #total], both: true)
+  }
 )
 
 #title()
@@ -89,11 +89,11 @@
   args.pos().map(c => table.cell(..args.named(), c))
 }
 
-#for (ytelse, posteringer, totalbelop) in data.ytelser [
-  = #ytelse
+#for (ytelse, posteringer, totalbelop) in data.ytelser {
+  [= #ytelse]
 
-  #let table-counter = counter("tabell-" + ytelse);
-  #table(
+  let table-counter = counter("tabell-" + ytelse);
+  table(
     stroke: (bottom: 1pt + rgb("ddd"), rest: none),
     inset: 4pt,
     columns: (auto, auto, 1fr, auto, auto, auto, 0pt),
@@ -145,6 +145,6 @@
       [], [], [Sum #ytelse], [], [], totalbelop.formattert,
     ),
   )
-]
+}
 
 #total-utbetalt-linje
