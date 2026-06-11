@@ -51,7 +51,7 @@ class TrekkKredTest {
             80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
             80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
             80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
-            Trekkoppgjørsrapport (T14) side 1 av 2
+            Trekkoppgjørsrapport fra Nav side 1 av 2
             Periode: 01.02.2026 - 28.02.2026
             Organisasjonsnr: 820710592
             Fortsetter fra forrige side
@@ -72,7 +72,7 @@ class TrekkKredTest {
             Delsum arkivref 243928051 34 079,00
             Sum enhet NAV 34 079,00
             Totalsum kreditor. 54 958,00
-            Trekkoppgjørsrapport (T14) side 2 av 2
+            Trekkoppgjørsrapport fra Nav side 2 av 2
             """
                 .trimIndent()
                 .trim()
