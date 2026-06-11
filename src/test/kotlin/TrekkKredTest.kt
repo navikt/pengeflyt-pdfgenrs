@@ -1,7 +1,6 @@
 import io.kotest.matchers.shouldBe
 import kotlin.test.Test
 import kotlin.test.assertTrue
-import org.junit.jupiter.api.Disabled
 import org.junit.jupiter.api.MethodOrderer
 import org.junit.jupiter.api.Order
 import org.junit.jupiter.api.TestMethodOrder
@@ -9,7 +8,6 @@ import org.junit.jupiter.api.TestMethodOrder
 private val ROUTE = OppgjorsrapporterRoute.`trekk-kred`
 private val PDF_TEKST: String = lagPdfOgHentTekst(jsonNavn = "trekk-kred", pdfgenRoute = ROUTE)
 
-@Disabled("Har ikke konvertert `trekk-kred`-templaten fra handlebars til typst ennå")
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class TrekkKredTest {
     @Test
@@ -22,11 +20,12 @@ class TrekkKredTest {
     fun `trekk-kred PDF har forventet innhold`() {
         PDF_TEKST.also { println(it) } shouldBe
             """
-            side  av 1 2Trekkoppgjørsrapport (T14)
             Trekkoppgjørsrapport fra Nav
-            Navn: LILLESTRØM KOMMUNE Periode: 01.02.2026 - 28.02.2026
-            Adresse: Jonas Lies gate 18, 2000 Kontonummer: 1000 23 23456
-            Organisasjonsnr: 820710592
+            Navn: LILLESTRØM KOMMUNE
+            Adresse: Jonas Lies gate 18, 2000
+            Organisasjonsnummer: 820710592
+            Periode: 01.02.2026 - 28.02.2026
+            Kontonummer: 1000 23 23456
             NAV Økonomi Stønad
             Arkivref Sakreferanse Fnr Navn Ytelse f.o.m. - t.o.m. Beløp
             80000844172 - 243927771 Saksnr. 128201 04504349435 Dette er en testperson 30.12.2025 - 31.12.2025 60,00
@@ -45,13 +44,23 @@ class TrekkKredTest {
             80000844172 - 243928328 128195 01154849230 Dette er en testperson 20.02.2026 - 21.02.2026 143,00
             80000844172 - 243928328 128195 01154849230 Dette er en testperson 16.02.2026 - 19.02.2026 569,00
             Delsum arkivref 243928328 1 423,00
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 20.02.2026 - 21.02.2026 143,00
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 16.02.2026 - 19.02.2026 569,00
+            Delsum arkivref 243928328 1 423,00
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 09.02.2026 - 13.02.2026 711,00
+            Trekkoppgjørsrapport fra Nav side 1 av 2
+            Periode: 01.02.2026 - 28.02.2026
+            Organisasjonsnr: 820710592
+            Fortsetter fra forrige side
+            Arkivref Sakreferanse Fnr Navn Ytelse f.o.m. - t.o.m. Beløp
+            80000844172 - 243928328 128195 01154849230 Dette er en testperson 16.02.2026 - 19.02.2026 569,00
+            Delsum arkivref 243928328 1 423,00
             80000844172 - 243999801 120666 10581233523 Dette er en testperson 14.02.2026 - 27.02.2026 4 852,00
             Delsum arkivref 243999801 4 852,00
             Sum enhet NAV Økonomi Stønad 20 879,00
-            Trekkoppgjørsrapport fra Nav
-            Fortsetter fra forrige side Periode: 01.02.2026 - 28.02.2026
-            Organisasjonsnr: 820710592
-            side  av 2 2Trekkoppgjørsrapport (T14)
             NAV
             Arkivref Sakreferanse Fnr Navn Ytelse f.o.m. - t.o.m. Beløp
             80000816561 - 243928051 04508082521 Dette er en testperson 01.02.2026 - 28.02.2026 15 599,00
@@ -63,6 +72,7 @@ class TrekkKredTest {
             Delsum arkivref 243928051 34 079,00
             Sum enhet NAV 34 079,00
             Totalsum kreditor. 54 958,00
+            Trekkoppgjørsrapport fra Nav side 2 av 2
             """
                 .trimIndent()
                 .trim()

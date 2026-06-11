@@ -29,3 +29,22 @@ resulterer i.
 > [!IMPORTANT]
 > I motsetning til hva tilfellet var med den gamle `pdfgen`-applikasjonen, så krever `pdfgenrs` at man restarter
 > `run_development.sh` hver gang man har gjort endringer på mal og/eller JSON-data.
+
+## Formattering av `.typ`-filer
+
+For å formatere typst-malfiler kan man bruke [`typstyle`](https://github.com/Enter-tainer/typstyle), en CLI-verktøy for formatering av `.typ`-filer.
+
+### Installasjon
+
+```bash
+brew install typstyle
+```
+
+### Bruk
+
+```bash
+typstyle -i file.typ #formaterer filen in-place.
+typstyle -i dir # formaterer filer i en mappe
+```
+
+
