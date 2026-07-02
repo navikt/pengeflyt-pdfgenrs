@@ -4,3 +4,5 @@ COPY templates /app/templates
 COPY fonts /app/fonts
 COPY resources /app/resources
 COPY resources /app/templates/resources
+
+ENV REQUEST_BODY_LIMIT_BYTES=4194304
