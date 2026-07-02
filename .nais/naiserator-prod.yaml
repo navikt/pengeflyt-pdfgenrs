@@ -26,7 +26,7 @@ spec:
     initialDelay: 10
   prometheus:
     enabled: true
-    path: /internal/prometheus
+    path: /internal/metrics
   resources:
     limits:
       memory: 2048Mi
