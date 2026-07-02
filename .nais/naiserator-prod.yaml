@@ -41,4 +41,4 @@ spec:
     # Øk grensen for hvor store (JSON-)payloads pdfgenrs vil ta imot fra default (2MiB) til 4 MiB, slik at våre største
     # rapport-bestillinger lar seg prosessere.
     - name: REQUEST_BODY_LIMIT_BYTES
-      value: 4194304
+      value: "4194304"
