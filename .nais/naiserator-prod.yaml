@@ -37,3 +37,8 @@ spec:
     inbound:
       rules:
         - application: sokos-oppgjorsrapporter
+  env:
+    # Øk grensen for hvor store (JSON-)payloads pdfgenrs vil ta imot fra default (2MiB) til 8 MiB, slik at våre største
+    # rapport-bestillinger lar seg prosessere.
+    - name: REQUEST_BODY_LIMIT_BYTES
+      value: "8388608"
