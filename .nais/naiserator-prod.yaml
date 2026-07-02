@@ -42,3 +42,5 @@ spec:
     # rapport-bestillinger lar seg prosessere.
     - name: REQUEST_BODY_LIMIT_BYTES
       value: "8388608"
+    - name: COMPILE_TIMEOUT_SECONDS
+      value: "60"
