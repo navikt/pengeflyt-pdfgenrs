@@ -1,8 +1,6 @@
-FROM ghcr.io/navikt/pdfgenrs:1.0.10@sha256:211c92d1505ae5c99189a97a754250e8b5393634bfb5f4cb9e4b5ceb501c3154
+FROM ghcr.io/navikt/pdfgenrs:1.0.14@sha256:f296ff2728e68d868eb49ac668290338240032baf2f71e6ddb93e9fddb48491e
 
 COPY templates /app/templates
 COPY fonts /app/fonts
 COPY resources /app/resources
 COPY resources /app/templates/resources
-
-ENV REQUEST_BODY_LIMIT_BYTES=8388608
