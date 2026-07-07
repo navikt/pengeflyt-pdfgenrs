@@ -1,4 +1,4 @@
-FROM ghcr.io/navikt/pdfgenrs:1.0.12@sha256:d1dabcba7a97b080ecaacf973cd3baae5901a7239d4e71805f74ad4c40d2b016
+FROM ghcr.io/navikt/pdfgenrs:1.0.14@sha256:f296ff2728e68d868eb49ac668290338240032baf2f71e6ddb93e9fddb48491e
 
 COPY templates /app/templates
 COPY fonts /app/fonts
