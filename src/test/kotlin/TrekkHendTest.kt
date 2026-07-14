@@ -7,7 +7,9 @@ import org.junit.jupiter.api.TestMethodOrder
 
 private val ROUTE = OppgjorsrapporterRoute.`trekk-hend`
 private val KREDITOR_PDF_TEKST: String = lagPdfOgHentTekst(jsonNavn = "trekk-hend-kreditor", pdfgenRoute = ROUTE)
+private val KREDITOR_MED_MANGLENDE_FELTER_PDF_TEKST: String = lagPdfOgHentTekst(jsonNavn = "trekk-hend-kreditor-med-manglende-felter", pdfgenRoute = ROUTE)
 private val NAMSMANN_PDF_TEKST: String = lagPdfOgHentTekst(jsonNavn = "trekk-hend-namsmann", pdfgenRoute = ROUTE)
+private val NAMSMANN__MED_MANGLENDE_FELTER_PDF_TEKST: String = lagPdfOgHentTekst(jsonNavn = "trekk-hend-namsmann-med-manglende-felter", pdfgenRoute = ROUTE)
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation::class)
 class TrekkHendTest {
@@ -15,7 +17,9 @@ class TrekkHendTest {
     @Order(1)
     fun `kompiler PDF uten feil og lagre lokalt`() {
         assertTrue(KREDITOR_PDF_TEKST.isNotEmpty())
+        assertTrue(KREDITOR_MED_MANGLENDE_FELTER_PDF_TEKST.isNotEmpty())
         assertTrue(NAMSMANN_PDF_TEKST.isNotEmpty())
+        assertTrue(NAMSMANN__MED_MANGLENDE_FELTER_PDF_TEKST.isNotEmpty())
     }
 
     @Test
@@ -37,6 +41,25 @@ class TrekkHendTest {
     }
 
     @Test
+    fun `trekk-hend(kreditor) med manglende felter PDF har forventet innhold`() {
+        KREDITOR_MED_MANGLENDE_FELTER_PDF_TEKST.also { println(it) } shouldBe
+            """
+            Trekkhendelser - tilbakemelding fra Nav til kreditor
+            Navn: McDuck inkasso AS
+            Adresse: Postboks 313, 3158 ANDEBY
+            Organisasjonsnummer: 859 503 241
+            Fremkjørt: 21.04.2026
+            Fnr Navn Org.nr Kreditors KID/referanse Type hendelse
+            184538 66986 Donald Duck 087 453 421 Ingen ytelse
+            224685 28375 Gulbrand Gråstein 0103064541812328464 Opphør ytelse
+            284820 19570 Petter Smart Opphør ytelse
+            Trekkhendelser (T12) side 1 av 1
+            """
+                .trimIndent()
+                .trim()
+    }
+
+    @Test
     fun `trekk-hend(namsmann) PDF har forventet innhold`() {
         NAMSMANN_PDF_TEKST.also { println(it) } shouldBe
             """
@@ -49,6 +72,25 @@ class TrekkHendTest {
             184538 66986 Donald Duck 0107036257420540624 Ingen ytelse
             245089 24131 Guffen Gås 5900562964792591 Ingen ytelse
             284820 19570 Petter Smart 01626785861606857982 Opphør ytelse
+            Trekkhendelser (T12) side 1 av 1
+            """
+                .trimIndent()
+                .trim()
+    }
+
+    @Test
+    fun `trekk-hend(namsmann) med manglende felter PDF har forventet innhold`() {
+        NAMSMANN__MED_MANGLENDE_FELTER_PDF_TEKST.also { println(it) } shouldBe
+            """
+            Trekkhendelser - tilbakemelding fra Nav til namsmann
+            Navn: NAMSFOGDEN I ANDEBY
+            Adresse: Postboks 313, 3158
+            Organisasjonsnummer: 087 453 421
+            Fremkjørt: 21.04.2026
+            Fnr Navn Org.nr Kreditors KID/referanse Type hendelse
+            184538 66986 Donald Duck Ingen ytelse
+            245089 24131 Guffen Gås 5900562964792591 Ingen ytelse
+            284820 19570 Petter Smart Opphør ytelse
             Trekkhendelser (T12) side 1 av 1
             """
                 .trimIndent()
