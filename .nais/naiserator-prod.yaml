@@ -43,4 +43,4 @@ spec:
     - name: REQUEST_BODY_LIMIT_BYTES
       value: "12582912"
     - name: COMPILE_TIMEOUT_SECONDS
-      value: "60"
+      value: "300"
